@@ -8,16 +8,20 @@ use Illuminate\Database\Eloquent\Model;
  * Class Salle
  *
  * @property $id
- * @property $created_at
- * @property $updated_at
+ * @property $name
+ * @property $number
  *
+ * @property MaterielSalle[] $materielSalles
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
 class Salle extends Model
 {
-    
+    public $timestamps = false;
+
     static $rules = [
+        'name' => 'required',
+        'number' => 'required',
     ];
 
     protected $perPage = 20;
@@ -27,8 +31,16 @@ class Salle extends Model
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = ['name','number'];
 
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function materielSalles()
+    {
+        return $this->hasMany('App\Models\MaterielSalle', 'salle_id', 'id');
+    }
 
 
 }

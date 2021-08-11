@@ -8,16 +8,18 @@ use Illuminate\Database\Eloquent\Model;
  * Class TypeMateriel
  *
  * @property $id
- * @property $created_at
- * @property $updated_at
+ * @property $name
  *
+ * @property Materiel[] $materiels
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
 class TypeMateriel extends Model
 {
-    
+    public $timestamps = false;
+
     static $rules = [
+        'name' => 'required',
     ];
 
     protected $perPage = 20;
@@ -27,8 +29,16 @@ class TypeMateriel extends Model
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = ['name'];
 
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function materiels()
+    {
+        return $this->hasMany('App\Models\Materiel', 'type_id', 'id');
+    }
 
 
 }

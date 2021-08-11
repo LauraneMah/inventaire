@@ -15,7 +15,9 @@ class CreateMateriel extends Migration
     {
         Schema::create('materiels', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('description');
+            $table->bigInteger('type_id')->unsigned();
+            $table->foreign('type_id')->references('id')->on('type_materiels');
         });
     }
 

@@ -15,7 +15,10 @@ class CreateMaterielSalle extends Migration
     {
         Schema::create('materiel_salles', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->bigInteger('materiel_id')->unsigned();
+            $table->bigInteger('salle_id')->unsigned();
+            $table->foreign('materiel_id')->references('id')->on('materiels');
+            $table->foreign('salle_id')->references('id')->on('salles');
         });
     }
 

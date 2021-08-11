@@ -15,7 +15,10 @@ class CreateMaterielPersonne extends Migration
     {
         Schema::create('materiel_personnes', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->bigInteger('materiel_id')->unsigned();
+            $table->bigInteger('personne_id')->unsigned();
+            $table->foreign('materiel_id')->references('id')->on('materiels');
+            $table->foreign('personne_id')->references('id')->on('personnes');
         });
     }
 
