@@ -84,7 +84,11 @@
                     <a class="nav-link"  href="salles" role="button" aria-haspopup="true" aria-expanded="false">Salles</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link"  href="materiels" role="button" aria-haspopup="true" aria-expanded="false">Matériel</a>
+                    <a class="nav-link"  href="materiels" role="button" aria-haspopup="true" aria-expanded="false">Matériels</a>
+
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"  href="declassees" role="button" aria-haspopup="true" aria-expanded="false">Déclassées</a>
 
                 </li>
                 <li class="nav-item">

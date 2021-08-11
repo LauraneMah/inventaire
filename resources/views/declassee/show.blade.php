@@ -19,7 +19,15 @@
                     </div>
 
                     <div class="card-body">
-                        
+
+                        <div class="form-group">
+                            <strong>Matériel Id:</strong>
+                            {{ $declassee->materiel->description }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Motive:</strong>
+                            {{ $declassee->motive }}
+                        </div>
 
                     </div>
                 </div>
