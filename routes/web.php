@@ -29,9 +29,10 @@ Route::resource('salles', \App\Http\Controllers\SalleController::class);
 
 Route::resource('personnes', \App\Http\Controllers\PersonneController::class);
 
-Route::resource('materiel-rooms', \App\Http\Controllers\MaterielSalleController::class);
+Route::resource('materiel-salles', \App\Http\Controllers\MaterielSalleController::class);
 
-Route::resource('materiel-people', \App\Http\Controllers\MaterielPersonneController::class);
+Route::resource('materiel-personnes', \App\Http\Controllers\MaterielPersonneController::class);
 
-Route::resource('downgradeds', \App\Http\Controllers\DeclasseeController::class);
+Route::resource('declassees', \App\Http\Controllers\DeclasseeController::class);
 
+Route::resource('declassees', \App\Http\Controllers\DeclasseeController::class);

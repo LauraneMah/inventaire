@@ -34,8 +34,11 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
-                                        
+                                        <th>N°</th>
+                                        <th>Nom de la salle</th>
+                                        <th>Numéro de salle</th>
+
+
 
                                         <th></th>
                                     </tr>
@@ -44,15 +47,17 @@
                                     @foreach ($salles as $salle)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
+
+                                            <td>{{ $salle->name }}</td>
+                                            <td>{{ $salle->number }}</td>
 
                                             <td>
                                                 <form action="{{ route('salles.destroy',$salle->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('salles.show',$salle->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('salles.edit',$salle->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('salles.show',$salle->id) }}"><i class="fa fa-fw fa-eye"></i> Afficher</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('salles.edit',$salle->id) }}"><i class="fa fa-fw fa-edit"></i> Editer</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Supprimer</button>
                                                 </form>
                                             </td>
                                         </tr>

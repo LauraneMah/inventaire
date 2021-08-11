@@ -19,7 +19,15 @@
                     </div>
 
                     <div class="card-body">
-                        
+
+                        <div class="form-group">
+                            <strong>Nom de la salle : </strong>
+                            {{ $salle->name }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Numéro salle : </strong>
+                            {{ $salle->number }}
+                        </div>
 
                     </div>
                 </div>

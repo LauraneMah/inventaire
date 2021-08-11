@@ -34,8 +34,11 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
-                                        
+                                        <th>N°</th>
+
+                                        <th>Matériel</th>
+                                        <th>Personne relié</th>
+
 
                                         <th></th>
                                     </tr>
@@ -44,7 +47,9 @@
                                     @foreach ($materielPersonnes as $materielPersonne)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
+
+                                            <td>{{ $materielPersonne->materiel->description }}</td>
+                                            <td>{{ $materielPersonne->personne->name }}</td>
 
                                             <td>
                                                 <form action="{{ route('materiel-personnes.destroy',$materielPersonne->id) }}" method="POST">

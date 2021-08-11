@@ -77,26 +77,26 @@
             <ul class="navbar-nav me-auto">
 
                 <li class="nav-item">
-                    <a class="nav-link active" href="/">Home</a>
+                    <a class="nav-link active" href="/">Accueil</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link"  href="rooms" role="button" aria-haspopup="true" aria-expanded="false">Rooms</a>
+                    <a class="nav-link"  href="salles" role="button" aria-haspopup="true" aria-expanded="false">Salles</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link"  href="materials" role="button" aria-haspopup="true" aria-expanded="false">Material</a>
+                    <a class="nav-link"  href="materiels" role="button" aria-haspopup="true" aria-expanded="false">Matériel</a>
 
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="people" role="button" aria-haspopup="true" aria-expanded="false">Persons</a>
+                    <a class="nav-link" href="personnes" role="button" aria-haspopup="true" aria-expanded="false">Personnes</a>
 
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="material-rooms" role="button" aria-haspopup="true" aria-expanded="false">Material rooms</a>
+                    <a class="nav-link" href="materiel-salles" role="button" aria-haspopup="true" aria-expanded="false">Matériels salle</a>
 
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="material-people" role="button" aria-haspopup="true" aria-expanded="false">Material People</a>
+                    <a class="nav-link" href="materiel-personnes" role="button" aria-haspopup="true" aria-expanded="false">Matériels personne</a>
 
                 </li>
             </ul>

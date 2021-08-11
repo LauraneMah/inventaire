@@ -34,8 +34,12 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
-                                        
+                                        <th>N°</th>
+                                        <th>Name</th>
+                                        <th>First Name</th>
+                                        <th>Username</th>
+                                        <th>Role Id</th>
+
 
                                         <th></th>
                                     </tr>
@@ -44,15 +48,19 @@
                                     @foreach ($personnes as $personne)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
+
+                                            <td>{{ $personne->name }}</td>
+                                            <td>{{ $personne->first_name }}</td>
+                                            <td>{{ $personne->username }}</td>
+                                            <td>{{ $personne->role->name }}</td>
 
                                             <td>
                                                 <form action="{{ route('personnes.destroy',$personne->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('personnes.show',$personne->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('personnes.edit',$personne->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('personnes.show',$personne->id) }}"><i class="fa fa-fw fa-eye"></i> Afficher</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('personnes.edit',$personne->id) }}"><i class="fa fa-fw fa-edit"></i> Editer</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Supprimer</button>
                                                 </form>
                                             </td>
                                         </tr>

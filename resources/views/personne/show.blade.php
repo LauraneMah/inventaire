@@ -19,7 +19,23 @@
                     </div>
 
                     <div class="card-body">
-                        
+
+                        <div class="form-group">
+                            <strong>Prénom : </strong>
+                            {{ $personne->name }}
+                        </div>
+                        <div class="form-group">
+                            <strong>First Name:</strong>
+                            {{ $personne->first_name }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Username:</strong>
+                            {{ $personne->username }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Role Id:</strong>
+                            {{ $personne->role_id }}
+                        </div>
 
                     </div>
                 </div>

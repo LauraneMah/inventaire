@@ -19,7 +19,15 @@
                     </div>
 
                     <div class="card-body">
-                        
+
+                        <div class="form-group">
+                            <strong>Description:</strong>
+                            {{ $materiel->description }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Type Materiel</strong>
+                            {{ $materiel->typeMateriel->name }}
+                        </div>
 
                     </div>
                 </div>

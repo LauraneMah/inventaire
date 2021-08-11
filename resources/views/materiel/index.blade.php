@@ -34,8 +34,10 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
-                                        
+                                        <th>N°</th>
+                                        <th>Objet</th>
+                                        <th>Type Matériel</th>
+
 
                                         <th></th>
                                     </tr>
@@ -44,15 +46,17 @@
                                     @foreach ($materiels as $materiel)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
+
+                                            <td>{{ $materiel->description }}</td>
+                                            <td>{{ $materiel->typeMateriel->name }}</td>
+
 
                                             <td>
                                                 <form action="{{ route('materiels.destroy',$materiel->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('materiels.show',$materiel->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('materiels.edit',$materiel->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('materiels.show',$materiel->id) }}"><i class="fa fa-fw fa-eye"></i> Afficher</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('materiels.edit',$materiel->id) }}"><i class="fa fa-fw fa-edit"></i> Editer</a>
+                                                    <a class="btn btn-danger btn-sm" href="{{ route('declassees.create', $materiel->id) }}"><i class="fa fa-fw fa-trash"></i>Déclasser</a>
                                                     @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
                                                 </form>
                                             </td>
                                         </tr>

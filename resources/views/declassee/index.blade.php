@@ -34,8 +34,8 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
-                                        
+                                        <th>N°</th>
+
 
                                         <th></th>
                                     </tr>
@@ -44,7 +44,11 @@
                                     @foreach ($declassees as $declassee)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
+
+                                            <td>{{ $declassee->stock }}</td>
+                                            <td>{{ $declassee->motive }}</td>
+                                            <td>{{ $declassee->materiel_id }}</td>
+
 
                                             <td>
                                                 <form action="{{ route('declassees.destroy',$declassee->id) }}" method="POST">

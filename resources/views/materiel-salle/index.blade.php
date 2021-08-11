@@ -35,7 +35,9 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
-                                        
+
+                                        <th>Matériel</th>
+                                        <th>Salle concerné</th>
 
                                         <th></th>
                                     </tr>
@@ -44,7 +46,9 @@
                                     @foreach ($materielSalles as $materielSalle)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
+
+                                            <td>{{ $materielSalle->materiel->description }}</td>
+                                            <td>{{ $materielSalle->salle->name }}</td>
 
                                             <td>
                                                 <form action="{{ route('materiel-salles.destroy',$materielSalle->id) }}" method="POST">
