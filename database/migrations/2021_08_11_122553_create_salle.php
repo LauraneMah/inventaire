@@ -13,7 +13,7 @@ class CreateSalle extends Migration
      */
     public function up()
     {
-        Schema::create('salle', function (Blueprint $table) {
+        Schema::create('salles', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreateSalle extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('salle');
+        Schema::dropIfExists('salles');
     }
 }

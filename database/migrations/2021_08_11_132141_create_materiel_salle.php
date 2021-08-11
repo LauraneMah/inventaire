@@ -13,7 +13,7 @@ class CreateMaterielSalle extends Migration
      */
     public function up()
     {
-        Schema::create('materiel_salle', function (Blueprint $table) {
+        Schema::create('materiels_salle', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreateMaterielSalle extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('materiel_salle');
+        Schema::dropIfExists('materiels_salle');
     }
 }

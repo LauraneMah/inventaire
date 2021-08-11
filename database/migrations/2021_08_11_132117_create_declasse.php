@@ -13,7 +13,7 @@ class CreateDeclasse extends Migration
      */
     public function up()
     {
-        Schema::create('declasse', function (Blueprint $table) {
+        Schema::create('declasses', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreateDeclasse extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('declasse');
+        Schema::dropIfExists('declasses');
     }
 }
