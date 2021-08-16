@@ -39,6 +39,17 @@
 
                     </div>
                 </div>
+
+                <div class="card">
+                    <div class="card-body">
+
+                        @foreach($personneMateriels as $personneMateriel)
+                            <li> {{ $personneMateriel->description }}</li>
+                        @endforeach
+
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>

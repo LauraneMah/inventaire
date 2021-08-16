@@ -31,6 +31,17 @@
 
                     </div>
                 </div>
+
+                <div class="card">
+                    <div class="card-body">
+
+                        @foreach($salleMateriels as $salleMateriel)
+                            <li> {{ $salleMateriel->description }}</li>
+                        @endforeach
+
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>

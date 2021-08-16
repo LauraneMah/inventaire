@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Salle;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class SalleController
@@ -67,7 +68,14 @@ class SalleController extends Controller
     {
         $salle = Salle::find($id);
 
-        return view('salle.show', compact('salle'));
+        $salleMateriels = DB::table('materiels')
+            ->select('materiels.description')
+            ->join('materiel_salles', 'materiels.id', '=', 'materiel_salles.materiel_id')
+            ->join('salles', 'materiel_salles.salle_id', '=', 'salles.id')
+            ->where('materiel_salles.salle_id', '=', $salle['id'])
+            -> get();
+
+        return view('salle.show', compact('salle', 'salleMateriels'));
     }
 
     /**

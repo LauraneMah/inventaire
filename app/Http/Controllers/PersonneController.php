@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Personne;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class PersonneController
@@ -12,10 +13,10 @@ use Illuminate\Http\Request;
 class PersonneController extends Controller
 {
 
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+//    public function __construct()
+//    {
+//        $this->middleware('auth');
+//    }
 
     /**
      * Display a listing of the resource.
@@ -67,7 +68,14 @@ class PersonneController extends Controller
     {
         $personne = Personne::find($id);
 
-        return view('personne.show', compact('personne'));
+        $personneMateriels = DB::table('materiels')
+            ->select('materiels.description')
+            ->join('materiel_personnes', 'materiels.id', '=', 'materiel_personnes.materiel_id')
+            ->join('personnes', 'materiel_personnes.personne_id', '=', 'personnes.id')
+            ->where('materiel_personnes.personne_id', '=', $personne['id'])
+            -> get();
+
+        return view('personne.show', compact('personne', 'personneMateriels'));
     }
 
     /**
