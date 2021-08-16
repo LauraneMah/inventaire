@@ -11,7 +11,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show Materiel</span>
+                            <span class="card-title">Matériel</span>
                         </div>
                         <div class="float-right">
                             <a class="btn btn-primary" href="{{ route('materiels.index') }}"> Back</a>
@@ -22,7 +22,7 @@
 
                         <div class="form-group">
                             <strong>Description:</strong>
-                            {{ $materiel->description }}
+                            {{ 'material', $materiel->description }}
                         </div>
                         <div class="form-group">
                             <strong>Type Materiel</strong>
