@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Materiel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class MaterielController
@@ -12,10 +13,10 @@ use Illuminate\Http\Request;
 class MaterielController extends Controller
 {
 
-//    public function __construct()
-//    {
-//        $this->middleware('auth');
-//    }
+/*    public function __construct()
+    {
+        $this->middleware('auth');
+    }*/
 
     /**
      * Display a listing of the resource.
@@ -67,7 +68,31 @@ class MaterielController extends Controller
     {
         $materiel = Materiel::find($id);
 
-        return view('materiel.show', compact('materiel'));
+        $typeMaterielChoix = $materiel['type_id'];
+
+        if ($typeMaterielChoix == 1){
+            $associatedMateriels = DB::table('personnes')
+                ->select('personnes.name', 'personnes.first_name')
+                ->join('materiel_personnes', 'personnes.id', '=', 'materiel_personnes.personne_id')
+                ->join('materiels', 'materiel_personnes.materiel_id', '=', 'materiels.id')
+                ->join('type_materiels', 'materiels.type_id', '=', 'type_materiels.id')
+                ->where('materiel_personnes.materiel_id', '=', $materiel['id'])
+                -> get();
+
+            return view('materiel.show', compact('materiel', 'associatedMateriels'));
+        }
+        elseif ($typeMaterielChoix == 2)
+        {
+            $associatedMateriels = DB::table('salles')
+                ->select('salles.name', 'salles.number')
+                ->join('materiel_salles', 'salles.id', '=', 'materiel_salles.salle_id')
+                ->join('materiels', 'materiel_salles.materiel_id', '=', 'materiels.id')
+                ->join('type_materiels', 'materiels.type_id', '=', 'type_materiels.id')
+                ->where('materiel_salles.materiel_id', '=', $materiel['id'])
+                -> get();
+
+            return view('materiel.show', compact('materiel', 'associatedMateriels'));
+        }
     }
 
     /**

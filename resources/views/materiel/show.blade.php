@@ -22,7 +22,7 @@
 
                         <div class="form-group">
                             <strong>Description:</strong>
-                            {{ 'material', $materiel->description }}
+                            {{ $materiel->description }}
                         </div>
                         <div class="form-group">
                             <strong>Type Materiel</strong>
@@ -31,6 +31,23 @@
 
                     </div>
                 </div>
+
+
+
+                    <div class="card">
+                        <div class="card-body">
+
+
+
+                            @foreach($associatedMateriels as $associatedMateriel)
+                                <li> {{ $associatedMateriel->name  }}</li>
+                            @endforeach
+
+                        </div>
+                    </div>
+
+
+
             </div>
         </div>
     </section>
