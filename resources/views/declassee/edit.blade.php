@@ -13,7 +13,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Modifications d'un déclassement</span>
+                        <span class="card-title">Modification d'un déclassement</span>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('declassees.update', $declassee->id) }}"  role="form" enctype="multipart/form-data">

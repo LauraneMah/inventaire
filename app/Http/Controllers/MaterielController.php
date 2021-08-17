@@ -131,6 +131,7 @@ class MaterielController extends Controller
         $declassee = new Declassee();
 
         return view('declassee.create', compact('declassee'));
+        //Ou faire appel à la fonction de DeclasseeController
     }
 
     /**
