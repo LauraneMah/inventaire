@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
  */
 class MaterielPersonneController extends Controller
 {
+    //FAIRE VARIABLE QUI RETOURNE LE MATERIEL TYPE WHERE TYPE = 2
 
 //    public function __construct()
 //    {
@@ -38,6 +39,7 @@ class MaterielPersonneController extends Controller
     public function create()
     {
         $materielPersonne = new MaterielPersonne();
+        //Ajouter que seul le type de matériel 1 peut-être crée sinon erreur
         return view('materiel-personne.create', compact('materielPersonne'));
     }
 

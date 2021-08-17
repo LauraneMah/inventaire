@@ -21,7 +21,6 @@ class Declassee extends Model
     public $timestamps = false;
 
     static $rules = [
-        'stock' => 'required',
         'motive' => 'required',
         'materiel_id' => 'required',
     ];

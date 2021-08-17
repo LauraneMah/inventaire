@@ -16,6 +16,11 @@
                                 {{ __('Declassee') }}
                             </span>
 
+                            <div class="float-right">
+                                <a href="{{ route('declassees.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                    {{ __('Create New') }}
+                                </a>
+                            </div>
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -32,9 +37,6 @@
                                         <th>N°</th>
                                         <th>Matériel</th>
                                         <th>Raison déclassement</th>
-
-
-
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -46,11 +48,11 @@
                                             <td>{{ $declassee->materiel->description }}</td>
                                             <td>{{ $declassee->motive }}</td>
 
-
                                             <td>
                                                 <form action="{{ route('declassees.destroy',$declassee->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary " href="{{ route('declassees.show',$declassee->id) }}"><i class="fa fa-fw fa-eye"></i> Afficher</a>
                                                     @csrf
+
                                                 </form>
                                             </td>
                                         </tr>

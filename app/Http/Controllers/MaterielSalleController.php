@@ -12,6 +12,8 @@ use Illuminate\Http\Request;
 class MaterielSalleController extends Controller
 {
 
+    //FAIRE VARIABLE QUI RETOURNE LE MATERIEL TYPE WHERE TYPE = 2
+
 //    public function __construct()
 //    {
 //        $this->middleware('auth');
@@ -38,6 +40,7 @@ class MaterielSalleController extends Controller
     public function create()
     {
         $materielSalle = new MaterielSalle();
+        //Ajouter que seul le type de matériel 2 peut-être crée sinon erreur
         return view('materiel-salle.create', compact('materielSalle'));
     }
 
