@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Update Declassee
+    Modifications des déclassements
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Update Declassee</span>
+                        <span class="card-title">Modification d'un déclassement</span>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('declassees.update', $declassee->id) }}"  role="form" enctype="multipart/form-data">

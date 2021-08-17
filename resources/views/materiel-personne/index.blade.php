@@ -53,8 +53,8 @@
 
                                             <td>
                                                 <form action="{{ route('materiel-personnes.destroy',$materielPersonne->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('materiel-personnes.show',$materielPersonne->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('materiel-personnes.edit',$materielPersonne->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('materiel-personnes.show',$materielPersonne->id) }}"><i class="fa fa-fw fa-eye"></i> Afficher</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('materiel-personnes.edit',$materielPersonne->id) }}"><i class="fa fa-fw fa-edit"></i> Editer</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>

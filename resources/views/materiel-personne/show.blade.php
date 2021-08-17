@@ -11,10 +11,10 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show Materiel Personne</span>
+                            <span class="card-title">Afficher liaison Materiel-Personne</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('materiel-personnes.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('materiel-personnes.index') }}"> Retour</a>
                         </div>
                     </div>
 
