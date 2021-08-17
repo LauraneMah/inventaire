@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Update Materiel Personne
+    Mise à jour liaison Matériel Personne
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Update Materiel Personne</span>
+                        <span class="card-title">Mise à jour d'une liaison</span>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('materiel-personnes.update', $materielPersonne->id) }}"  role="form" enctype="multipart/form-data">

@@ -49,7 +49,7 @@
 
                                             <td>
                                                 <form action="{{ route('declassees.destroy',$declassee->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('declassees.show',$declassee->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('declassees.show',$declassee->id) }}"><i class="fa fa-fw fa-eye"></i> Afficher</a>
                                                     @csrf
                                                 </form>
                                             </td>
