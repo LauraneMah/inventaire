@@ -13,9 +13,14 @@ class CreatePersonne extends Migration
      */
     public function up()
     {
-        Schema::create('personne', function (Blueprint $table) {
+        Schema::create('personnes', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('name');
+            $table->string('first_name');
+            $table->string('username');
+            $table->string('password');
+            $table->bigInteger('role_id')->unsigned();
+            $table->foreign('role_id')->references('id')->on('roles');
         });
     }
 
@@ -26,6 +31,6 @@ class CreatePersonne extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('personne');
+        Schema::dropIfExists('personnes');
     }
 }

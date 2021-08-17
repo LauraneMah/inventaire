@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDeclasse extends Migration
+class CreateDeclassee extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CreateDeclasse extends Migration
      */
     public function up()
     {
-        Schema::create('declasse', function (Blueprint $table) {
+        Schema::create('declassees', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->integer('stock');
+            $table->string('motive');
+            $table->bigInteger('materiel_id')->unsigned();
+            $table->foreign('materiel_id')->references('id')->on('materiels');
         });
     }
 
@@ -26,6 +29,6 @@ class CreateDeclasse extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('declasse');
+        Schema::dropIfExists('declassees');
     }
 }

@@ -13,9 +13,12 @@ class CreateMaterielPersonne extends Migration
      */
     public function up()
     {
-        Schema::create('materiel_personne', function (Blueprint $table) {
+        Schema::create('materiel_personnes', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->bigInteger('materiel_id')->unsigned();
+            $table->bigInteger('personne_id')->unsigned();
+            $table->foreign('materiel_id')->references('id')->on('materiels');
+            $table->foreign('personne_id')->references('id')->on('personnes');
         });
     }
 
@@ -26,6 +29,6 @@ class CreateMaterielPersonne extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('materiel_personne');
+        Schema::dropIfExists('materiel_personnes');
     }
 }

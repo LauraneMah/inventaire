@@ -13,9 +13,11 @@ class CreateMateriel extends Migration
      */
     public function up()
     {
-        Schema::create('materiel', function (Blueprint $table) {
+        Schema::create('materiels', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('description');
+            $table->bigInteger('type_id')->unsigned();
+            $table->foreign('type_id')->references('id')->on('type_materiels');
         });
     }
 
@@ -26,6 +28,6 @@ class CreateMateriel extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('materiel');
+        Schema::dropIfExists('materiels');
     }
 }
