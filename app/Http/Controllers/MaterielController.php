@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Declassee;
 use App\Models\Materiel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -124,14 +123,6 @@ class MaterielController extends Controller
 
         return redirect()->route('materiels.index')
             ->with('success', 'Materiel updated successfully');
-    }
-
-    public function declasse($id)
-    {
-        $declassee = new Declassee();
-
-        return view('declassee.create', compact('declassee'));
-        //Ou faire appel à la fonction de DeclasseeController
     }
 
     /**
