@@ -27,6 +27,8 @@ require __DIR__.'/auth.php';
 Auth::routes();
 
 
+Route::resource('users', \App\Http\Controllers\UserController::class);
+
 
 Route::resource('materiels', \App\Http\Controllers\MaterielController::class);
 
@@ -39,6 +41,12 @@ Route::resource('materiel-salles', \App\Http\Controllers\MaterielSalleController
 Route::resource('materiel-personnes', \App\Http\Controllers\MaterielPersonneController::class);
 
 Route::resource('declassees', \App\Http\Controllers\DeclasseeController::class);
+
+Route::middleware('auth')->group(function () {
+    Route::post('/index/dashboard/', 'Auth\LoginController@postlogin')->name('postlogin');
+    Route::post('/index/logout', 'Auth\LoginController@postlogout')->name('postlogout');
+});
+
 
 
 /*Excel import export*/
