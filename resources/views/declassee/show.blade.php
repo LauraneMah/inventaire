@@ -11,21 +11,22 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Afficher déclassement</span>
+                            <span class="card-title">Show Declassee</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('declassees.index') }}"> Retour</a>
+                            <a class="btn btn-primary" href="{{ route('declassees.index') }}"> Back</a>
                         </div>
                     </div>
 
                     <div class="card-body">
 
                         <div class="form-group">
-                            <strong>Matériel : </strong>
-                            {{ $declassee->materiel->description }}
+                            <strong>Material Id:</strong>
+                            {{ $declassee->materiel_id }}
                         </div>
+
                         <div class="form-group">
-                            <strong>Raison : </strong>
+                            <strong>Motive:</strong>
                             {{ $declassee->motive }}
                         </div>
 
