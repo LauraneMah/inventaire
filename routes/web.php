@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +24,10 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
+Auth::routes();
+
+
+
 Route::resource('materiels', \App\Http\Controllers\MaterielController::class);
 
 Route::resource('salles', \App\Http\Controllers\SalleController::class);
@@ -36,10 +41,7 @@ Route::resource('materiel-personnes', \App\Http\Controllers\MaterielPersonneCont
 Route::resource('declassees', \App\Http\Controllers\DeclasseeController::class);
 
 
-
 /*Excel import export*/
-
-
 
 Route::get('file-export-mr', [\App\Http\Controllers\MaterielSalleController::class, 'fileExport'])->name('file-export-mr');
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\MaterielPersonne;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class MaterielPersonneController
@@ -38,9 +39,13 @@ class MaterielPersonneController extends Controller
      */
     public function create()
     {
+        $personneName = DB::table('personnes')->pluck('name', 'id');
+
+        $materielName = DB::table('materiels')->where('type_id', 1)->pluck('description','id');
+
         $materielPersonne = new MaterielPersonne();
-        //Ajouter que seul le type de matériel 1 peut-être crée sinon erreur
-        return view('materiel-personne.create', compact('materielPersonne'));
+
+        return view('materiel-personne.create', compact('personneName', 'materielName', 'materielPersonne'));
     }
 
     /**
@@ -80,9 +85,13 @@ class MaterielPersonneController extends Controller
      */
     public function edit($id)
     {
+        $personneName = DB::table('personnes')->pluck('name', 'id');
+
+        $materielName = DB::table('materiels')->where('type_id', 1)->pluck('description','id');
+
         $materielPersonne = MaterielPersonne::find($id);
 
-        return view('materiel-personne.edit', compact('materielPersonne'));
+        return view('materiel-personne.edit', compact('personneName', 'materielName','materielPersonne'));
     }
 
     /**
