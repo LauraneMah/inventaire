@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 /**
  * Class User
@@ -19,12 +20,15 @@ use Illuminate\Database\Eloquent\Model;
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
-class User extends Model
+class User extends Authenticatable
 {
-    
+
+    public $timestamps = false;
+
     static $rules = [
-		'name' => 'required',
-		'email' => 'required',
+        'name' => 'required',
+        'email' => 'required',
+        'password' => 'required',
     ];
 
     protected $perPage = 20;
@@ -34,8 +38,6 @@ class User extends Model
      *
      * @var array
      */
-    protected $fillable = ['name','email'];
-
-
+    protected $fillable = ['name','email','password'];
 
 }
