@@ -36,3 +36,11 @@ Route::resource('materiel-personnes', \App\Http\Controllers\MaterielPersonneCont
 Route::resource('declassees', \App\Http\Controllers\DeclasseeController::class);
 
 Route::resource('declassees', \App\Http\Controllers\DeclasseeController::class);
+
+
+/*Excel import export*/
+
+
+
+Route::get('file-import-export-mr', [\App\Http\Controllers\MaterielSalleController::class, 'fileImportExport']);
+Route::get('file-export-mr', [\App\Http\Controllers\MaterielSalleController::class, 'fileExport'])->name('file-export-mr');

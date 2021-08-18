@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\MaterielSalle;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\MaterielSallesExport;
+
 
 /**
  * Class MaterielSalleController
@@ -115,4 +118,11 @@ class MaterielSalleController extends Controller
         return redirect()->route('materiel-salles.index')
             ->with('success', 'MaterielSalle deleted successfully');
     }
+
+    public function fileExport()
+    {
+        return Excel::download(new MaterielSallesExport, 'materiel-salles-collection.csv');
+    }
 }
+
+
