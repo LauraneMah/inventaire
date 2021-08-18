@@ -13,7 +13,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Create Personne</span>
+                        <span class="card-title">Création déclassement</span>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('declassees.store') }}"  role="form" enctype="multipart/form-data">
