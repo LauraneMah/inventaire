@@ -119,6 +119,7 @@ class MaterielSalleController extends Controller
             ->with('success', 'MaterielSalle deleted successfully');
     }
 
+
     public function fileExport()
     {
         return Excel::download(new MaterielSallesExport, 'materiel-salles-collection.csv');
