@@ -47,6 +47,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/index/logout', 'Auth\LoginController@postlogout')->name('postlogout');
 });
 
+Route::post('/logout', [app\Http\Controllers\Auth\AuthenticatedSessionController::class, 'destroy'])
+    ->middleware('auth')
+    ->name('logout');
 
 
 /*Excel import export*/

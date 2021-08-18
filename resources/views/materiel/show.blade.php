@@ -32,12 +32,8 @@
                     </div>
                 </div>
 
-
-
                     <div class="card">
                         <div class="card-body">
-
-
 
                             @foreach($associatedMateriels as $associatedMateriel)
                                 <li> {{ $associatedMateriel->name  }}</li>

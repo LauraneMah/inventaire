@@ -13,10 +13,10 @@ use Illuminate\Http\Request;
 class DeclasseeController extends Controller
 {
 
-//    public function __construct()
-//    {
-//        $this->middleware('auth');
-//    }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     /**
      * Display a listing of the resource.
@@ -36,7 +36,7 @@ class DeclasseeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create()
     {
 
         $declassee = new Declassee();

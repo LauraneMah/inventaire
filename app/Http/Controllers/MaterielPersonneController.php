@@ -12,12 +12,11 @@ use Illuminate\Support\Facades\DB;
  */
 class MaterielPersonneController extends Controller
 {
-    //FAIRE VARIABLE QUI RETOURNE LE MATERIEL TYPE WHERE TYPE = 2
 
-//    public function __construct()
-//    {
-//        $this->middleware('auth');
-//    }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     /**
      * Display a listing of the resource.
