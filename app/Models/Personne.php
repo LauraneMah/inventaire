@@ -10,8 +10,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property $id
  * @property $name
  * @property $first_name
- * @property $username
- * @property $password
  * @property $role_id
  *
  * @property MaterielPersonne[] $materielPersonnes
@@ -26,8 +24,6 @@ class Personne extends Model
     static $rules = [
         'name' => 'required',
         'first_name' => 'required',
-        'username' => 'required',
-        'password' => 'required',
         'role_id' => 'required',
     ];
 
@@ -38,7 +34,7 @@ class Personne extends Model
      *
      * @var array
      */
-    protected $fillable = ['name','first_name','username','password','role_id'];
+    protected $fillable = ['name','first_name','role_id'];
 
 
     /**

@@ -55,6 +55,7 @@
                                                 <form action="{{ route('salles.destroy',$salle->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary " href="{{ route('salles.show',$salle->id) }}"><i class="fa fa-fw fa-eye"></i> Afficher</a>
                                                     <a class="btn btn-sm btn-success" href="{{ route('salles.edit',$salle->id) }}"><i class="fa fa-fw fa-edit"></i> Editer</a>
+                                                    <a class="btn btn-sm btn-info" href="{{ route('file-export-r', $salle->id) }}"><i class="fa fa-fw fa-edit"></i> Exporter les données</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Supprimer</button>

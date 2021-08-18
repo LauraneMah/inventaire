@@ -39,8 +39,6 @@
                                         <th>First Name</th>
                                         <th>Username</th>
                                         <th>Role Id</th>
-
-
                                         <th></th>
                                     </tr>
                                 </thead>

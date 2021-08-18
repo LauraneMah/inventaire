@@ -13,10 +13,10 @@ use Illuminate\Support\Facades\DB;
 class PersonneController extends Controller
 {
 
-//    public function __construct()
-//    {
-//        $this->middleware('auth');
-//    }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     /**
      * Display a listing of the resource.
@@ -38,8 +38,9 @@ class PersonneController extends Controller
      */
     public function create()
     {
+        $personneRole = DB::table('roles')->pluck('name', 'id');
         $personne = new Personne();
-        return view('personne.create', compact('personne'));
+        return view('personne.create', compact('personne', 'personneRole'));
     }
 
     /**
@@ -86,9 +87,10 @@ class PersonneController extends Controller
      */
     public function edit($id)
     {
+        $personneRole = DB::table('roles')->pluck('name', 'id');
         $personne = Personne::find($id);
 
-        return view('personne.edit', compact('personne'));
+        return view('personne.edit', compact('personne', 'personneRole'));
     }
 
     /**

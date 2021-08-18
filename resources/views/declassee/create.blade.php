@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Create Declassee
+    Déclassement
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Create Declassee</span>
+                        <span class="card-title">Déclasser</span>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('declassees.store') }}"  role="form" enctype="multipart/form-data">

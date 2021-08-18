@@ -14,30 +14,26 @@
                             <span class="card-title">Matériel</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('materiels.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('materiels.index') }}"> Retour</a>
                         </div>
                     </div>
 
                     <div class="card-body">
 
                         <div class="form-group">
-                            <strong>Description:</strong>
+                            <strong>Description :</strong>
                             {{ $materiel->description }}
                         </div>
                         <div class="form-group">
-                            <strong>Type Materiel</strong>
+                            <strong>Type de matériel</strong>
                             {{ $materiel->typeMateriel->name }}
                         </div>
 
                     </div>
                 </div>
 
-
-
                     <div class="card">
                         <div class="card-body">
-
-
 
                             @foreach($associatedMateriels as $associatedMateriel)
                                 <li> {{ $associatedMateriel->name  }}</li>

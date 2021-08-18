@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Declassee;
+use App\Models\Materiel;
 use Illuminate\Http\Request;
 
 /**
@@ -12,10 +13,10 @@ use Illuminate\Http\Request;
 class DeclasseeController extends Controller
 {
 
-//    public function __construct()
-//    {
-//        $this->middleware('auth');
-//    }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     /**
      * Display a listing of the resource.
@@ -37,6 +38,7 @@ class DeclasseeController extends Controller
      */
     public function create()
     {
+
         $declassee = new Declassee();
         return view('declassee.create', compact('declassee'));
     }

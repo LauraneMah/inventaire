@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\MaterielPersonne;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class MaterielPersonneController
@@ -12,10 +13,10 @@ use Illuminate\Http\Request;
 class MaterielPersonneController extends Controller
 {
 
-//    public function __construct()
-//    {
-//        $this->middleware('auth');
-//    }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     /**
      * Display a listing of the resource.
@@ -37,8 +38,13 @@ class MaterielPersonneController extends Controller
      */
     public function create()
     {
+        $personneName = DB::table('personnes')->pluck('name', 'id');
+
+        $materielName = DB::table('materiels')->where('type_id', 1)->pluck('description','id');
+
         $materielPersonne = new MaterielPersonne();
-        return view('materiel-personne.create', compact('materielPersonne'));
+
+        return view('materiel-personne.create', compact('personneName', 'materielName', 'materielPersonne'));
     }
 
     /**
@@ -78,9 +84,13 @@ class MaterielPersonneController extends Controller
      */
     public function edit($id)
     {
+        $personneName = DB::table('personnes')->pluck('name', 'id');
+
+        $materielName = DB::table('materiels')->where('type_id', 1)->pluck('description','id');
+
         $materielPersonne = MaterielPersonne::find($id);
 
-        return view('materiel-personne.edit', compact('materielPersonne'));
+        return view('materiel-personne.edit', compact('personneName', 'materielName','materielPersonne'));
     }
 
     /**

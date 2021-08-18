@@ -16,6 +16,8 @@
                                 {{ __('Declassee') }}
                             </span>
 
+                            <div class="float-right">
+                            </div>
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -28,33 +30,31 @@
                         <div class="table-responsive">
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
-                                    <tr>
-                                        <th>N°</th>
-                                        <th>Matériel</th>
-                                        <th>Raison déclassement</th>
+                                <tr>
+                                    <th>No</th>
 
+                                    <th>Materiel Id</th>
+                                    <th>Motive</th>
 
-
-                                        <th></th>
-                                    </tr>
+                                    <th></th>
+                                </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($declassees as $declassee)
-                                        <tr>
-                                            <td>{{ ++$i }}</td>
+                                @foreach ($declassees as $declassee)
+                                    <tr>
+                                        <td>{{ ++$i }}</td>
 
-                                            <td>{{ $declassee->materiel->description }}</td>
-                                            <td>{{ $declassee->motive }}</td>
+                                        <td>{{ $declassee->materiel_id }}</td>
+                                        <td>{{ $declassee->motive }}</td>
 
-
-                                            <td>
-                                                <form action="{{ route('declassees.destroy',$declassee->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('declassees.show',$declassee->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    @csrf
-                                                </form>
-                                            </td>
-                                        </tr>
-                                    @endforeach
+                                        <td>
+                                            <form action="{{ route('declassees.destroy',$declassee->id) }}" method="POST">
+                                                <a class="btn btn-sm btn-primary " href="{{ route('declassees.show',$declassee->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
+                                                @csrf
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>

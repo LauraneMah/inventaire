@@ -51,5 +51,4 @@ class MaterielSalle extends Model
         return $this->hasOne('App\Models\Salle', 'id', 'salle_id');
     }
 
-
 }

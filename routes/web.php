@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +24,12 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
+Auth::routes();
+
+
+Route::resource('users', \App\Http\Controllers\UserController::class);
+
+
 Route::resource('materiels', \App\Http\Controllers\MaterielController::class);
 
 Route::resource('salles', \App\Http\Controllers\SalleController::class);
@@ -35,4 +42,18 @@ Route::resource('materiel-personnes', \App\Http\Controllers\MaterielPersonneCont
 
 Route::resource('declassees', \App\Http\Controllers\DeclasseeController::class);
 
-Route::resource('declassees', \App\Http\Controllers\DeclasseeController::class);
+Route::middleware('auth')->group(function () {
+    Route::post('/index/dashboard/', 'Auth\LoginController@postlogin')->name('postlogin');
+    Route::post('/index/logout', 'Auth\LoginController@postlogout')->name('postlogout');
+});
+
+Route::post('/logout', [app\Http\Controllers\Auth\AuthenticatedSessionController::class, 'destroy'])
+    ->middleware('auth')
+    ->name('logout');
+
+
+/*Excel import export*/
+
+Route::get('file-export-mr', [\App\Http\Controllers\MaterielSalleController::class, 'fileExport'])->name('file-export-mr');
+
+Route::get('file-export-r/{id}', [\App\Http\Controllers\SalleController::class, 'fileExport'])->name('file-export-r');

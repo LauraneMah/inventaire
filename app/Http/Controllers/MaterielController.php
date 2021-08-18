@@ -13,10 +13,10 @@ use Illuminate\Support\Facades\DB;
 class MaterielController extends Controller
 {
 
-/*    public function __construct()
+   public function __construct()
     {
         $this->middleware('auth');
-    }*/
+    }
 
     /**
      * Display a listing of the resource.
@@ -38,8 +38,9 @@ class MaterielController extends Controller
      */
     public function create()
     {
+        $typeMaterielName = DB::table('type_materiels')->pluck('name', 'id');
         $materiel = new Materiel();
-        return view('materiel.create', compact('materiel'));
+        return view('materiel.create', compact('materiel', 'typeMaterielName'));
     }
 
     /**
@@ -103,9 +104,9 @@ class MaterielController extends Controller
      */
     public function edit($id)
     {
+        $typeMaterielName = DB::table('type_materiels')->pluck('name', 'id');
         $materiel = Materiel::find($id);
-
-        return view('materiel.edit', compact('materiel'));
+        return view('materiel.edit', compact('materiel', 'typeMaterielName'));
     }
 
     /**

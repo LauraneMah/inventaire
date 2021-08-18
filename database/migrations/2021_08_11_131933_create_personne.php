@@ -17,8 +17,6 @@ class CreatePersonne extends Migration
             $table->id();
             $table->string('name');
             $table->string('first_name');
-            $table->string('username');
-            $table->string('password');
             $table->bigInteger('role_id')->unsigned();
             $table->foreign('role_id')->references('id')->on('roles');
         });

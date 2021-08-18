@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\MaterielSalle;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\MaterielSallesExport;
+
 
 /**
  * Class MaterielSalleController
@@ -12,10 +16,10 @@ use Illuminate\Http\Request;
 class MaterielSalleController extends Controller
 {
 
-//    public function __construct()
-//    {
-//        $this->middleware('auth');
-//    }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     /**
      * Display a listing of the resource.
@@ -37,8 +41,13 @@ class MaterielSalleController extends Controller
      */
     public function create()
     {
+        $salleName = DB::table('salles')->pluck('name', 'id');
+
+        $materielName = DB::table('materiels')->where('type_id', 2)->pluck('description','id');
+
         $materielSalle = new MaterielSalle();
-        return view('materiel-salle.create', compact('materielSalle'));
+
+        return view('materiel-salle.create', compact( 'salleName', 'materielName', 'materielSalle'));
     }
 
     /**
@@ -78,9 +87,13 @@ class MaterielSalleController extends Controller
      */
     public function edit($id)
     {
+        $salleName = DB::table('salles')->pluck('name', 'id');
+
+        $materielName = DB::table('materiels')->where('type_id', 2)->pluck('description','id');
+
         $materielSalle = MaterielSalle::find($id);
 
-        return view('materiel-salle.edit', compact('materielSalle'));
+        return view('materiel-salle.edit', compact('salleName', 'materielName', 'materielSalle'));
     }
 
     /**
@@ -112,4 +125,12 @@ class MaterielSalleController extends Controller
         return redirect()->route('materiel-salles.index')
             ->with('success', 'MaterielSalle deleted successfully');
     }
+
+
+    public function fileExport()
+    {
+        return Excel::download(new MaterielSallesExport, 'materiel-salles-collection.csv');
+    }
 }
+
+

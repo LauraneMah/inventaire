@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
  * Class Declassee
  *
  * @property $id
- * @property $stock
  * @property $motive
  * @property $materiel_id
  *
@@ -21,7 +20,6 @@ class Declassee extends Model
     public $timestamps = false;
 
     static $rules = [
-        'stock' => 'required',
         'motive' => 'required',
         'materiel_id' => 'required',
     ];
@@ -33,7 +31,7 @@ class Declassee extends Model
      *
      * @var array
      */
-    protected $fillable = ['stock','motive','materiel_id'];
+    protected $fillable = ['motive','materiel_id'];
 
 
     /**
