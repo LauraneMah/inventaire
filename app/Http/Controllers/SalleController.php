@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\SallesExport;
+use App\Models\Materiel;
 use App\Models\Salle;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\DB;
 
 /**
@@ -119,5 +122,10 @@ class SalleController extends Controller
 
         return redirect()->route('salles.index')
             ->with('success', 'Salle deleted successfully');
+    }
+
+    public function fileExport($id)
+    {
+        return Excel::download(new SallesExport($id), 'salles-collection.csv');
     }
 }

@@ -15,7 +15,7 @@
                             <span id="card_title">
                                 {{ __('Materiel Salle') }}
                             </span>
-                            <a class="btn btn-success" href="{{ route('file-export-mr') }}">Exporter les données</a>
+                            <a class="btn btn btn-info" href="{{ route('file-export-mr') }}">Exporter les données</a>
 
                              <div class="float-right">
                                 <a href="{{ route('materiel-salles.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">

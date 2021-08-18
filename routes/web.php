@@ -42,5 +42,6 @@ Route::resource('declassees', \App\Http\Controllers\DeclasseeController::class);
 
 
 
-Route::get('file-import-export-mr', [\App\Http\Controllers\MaterielSalleController::class, 'fileImportExport']);
 Route::get('file-export-mr', [\App\Http\Controllers\MaterielSalleController::class, 'fileExport'])->name('file-export-mr');
+
+Route::get('file-export-r/{id}', [\App\Http\Controllers\SalleController::class, 'fileExport'])->name('file-export-r');
