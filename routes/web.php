@@ -29,7 +29,6 @@ Auth::routes();
 
 Route::resource('users', \App\Http\Controllers\UserController::class);
 
-
 Route::resource('materiels', \App\Http\Controllers\MaterielController::class);
 
 Route::resource('salles', \App\Http\Controllers\SalleController::class);
@@ -40,7 +39,11 @@ Route::resource('materiel-salles', \App\Http\Controllers\MaterielSalleController
 
 Route::resource('materiel-personnes', \App\Http\Controllers\MaterielPersonneController::class);
 
-Route::resource('declassees', \App\Http\Controllers\DeclasseeController::class);
+Route::get('declassees/{id}',[\App\Http\Controllers\DeclasseeController::class, 'create'])->name('declassees.create');
+
+Route::resource('declassees', \App\Http\Controllers\DeclasseeController::class)->except('create');
+
+
 
 Route::middleware('auth')->group(function () {
     Route::post('/index/dashboard/', 'Auth\LoginController@postlogin')->name('postlogin');

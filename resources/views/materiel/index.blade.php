@@ -55,7 +55,7 @@
                                                 <form action="{{ route('materiels.destroy',$materiel->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary " href="{{ route('materiels.show',$materiel->id) }}"><i class="fa fa-fw fa-eye"></i> Afficher</a>
                                                     <a class="btn btn-sm btn-success" href="{{ route('materiels.edit',$materiel->id) }}"><i class="fa fa-fw fa-edit"></i> Editer</a>
-                                                    <a class="btn btn-danger btn-sm" href="{{ route('declassees.create', $materiel->id) }}"><i class="fa fa-fw fa-trash"></i>Déclasser</a>
+                                                    <a class="btn btn-danger btn-sm" href="{{ route('declassees.create', [$materiel->id]) }}"><i class="fa fa-fw fa-trash"></i>Déclasser</a>
                                                     @csrf
                                                 </form>
                                             </td>

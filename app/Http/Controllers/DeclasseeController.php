@@ -36,11 +36,10 @@ class DeclasseeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-
         $declassee = new Declassee();
-        return view('declassee.create', compact('declassee'));
+        return view('declassee.create', compact('declassee', 'id'));
     }
 
     /**

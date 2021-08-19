@@ -8,7 +8,7 @@
         </div>
         <div class="form-group">
             {{ Form::label('materiel_id') }}
-            {{ Form::text('materiel_id', $declassee->materiel_id, ['class' => 'form-control' . ($errors->has('materiel_id') ? ' is-invalid' : ''), 'placeholder' => 'Materiel Id']) }}
+            {{ Form::text('materiel_id', $id, ['class' => 'form-control' . ($errors->has('materiel_id') ? ' is-invalid' : ''), 'placeholder' => 'Materiel Id']) }}
             {!! $errors->first('materiel_id', '<div class="invalid-feedback">:message</p>') !!}
         </div>
 

@@ -81,7 +81,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link"  href="salles" role="button" aria-haspopup="true" aria-expanded="false">Salles</a>
+                    <a class="nav-link"  href="{{route('salles.index')}}" role="button" aria-haspopup="true" aria-expanded="false">Salles</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link"  href="materiels" role="button" aria-haspopup="true" aria-expanded="false">Matériels</a>

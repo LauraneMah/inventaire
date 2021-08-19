@@ -4,10 +4,19 @@ namespace App\Exports;
 
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class SallesExport implements FromCollection
+class SallesExport implements FromCollection,WithHeadings
 {
     protected $id;
+
+    public function headings(): array
+    {
+        return [
+            'number',
+            'name'
+        ];
+    }
 
     function __construct($id)
     {
